@@ -23,6 +23,8 @@ void display_cursor(CURSOR cursor);
 void display_system_message(const char* message);
 void display_commands(const char* commands);
 void display_status(const char* status);
+void init_buildings(BUILDING buildings[]);
+void init_units(UNIT units[]);
 
 void display(
 	RESOURCE resource,
@@ -110,14 +112,54 @@ void display_system_message(const char* message) {
 	printf("SYSTEM: %s", message);
 }
 
-void display_commands(const char* commands) {
+void display_commands(const char* building_or_unit) {
 	POSITION command_pos = { MAP_HEIGHT + 2, 0 };
 	gotoxy(command_pos);
-	printf("COMMANDS: %s", commands);
+
+	if (strcmp(building_or_unit, "Base") == 0) {
+		printf("COMMANDS: H: Harvester 생산");
+	}
+	else if (strcmp(building_or_unit, "Barracks") == 0) {
+		printf("COMMANDS: Soldier 생산");
+	}
+	else if (strcmp(building_or_unit, "Shelter") == 0) {
+		printf("COMMANDS: Fremen 생산");
+	}
+	else if (strcmp(building_or_unit, "Arena") == 0) {
+		printf("COMMANDS: Fighter 생산");
+	}
+	else if (strcmp(building_or_unit, "Factory") == 0) {
+		printf("COMMANDS: Heavy Tank 생산");
+	}
+	else {
+		printf("COMMANDS: 없음");
+	}
 }
+
 
 void display_status(const char* status) {
 	POSITION status_pos = { 0, MAP_WIDTH / 2 + 1 };
 	gotoxy(status_pos);
 	printf("STATUS: %s", status);
 }
+
+void init_buildings(BUILDING buildings[]) {
+	buildings[0] = (BUILDING){ "Base", 0, 50, 1 };          // 본진
+	buildings[1] = (BUILDING){ "Plate", 0, 0, 0 };          // 장판
+	buildings[2] = (BUILDING){ "Dormitory", 2, 10, 0 };     // 숙소
+	buildings[3] = (BUILDING){ "Garage", 2, 10, 0 };        // 창고
+	buildings[4] = (BUILDING){ "Barracks", 4, 20, 1 };      // 병영
+	buildings[5] = (BUILDING){ "Shelter", 5, 30, 1 };       // 은신처
+	buildings[6] = (BUILDING){ "Arena", 4, 20, 1 };         // 투기장
+	buildings[7] = (BUILDING){ "Factory", 5, 30, 1 };       // 공장
+}
+
+void init_units(UNIT units[]) {
+	units[0] = (UNIT){ "Harvester", 5, 0, 0, 2000, 70 };    // 하베스터
+	units[1] = (UNIT){ "Soldier", 5, 15, 5, 400, 25 };      // 솔저
+	units[2] = (UNIT){ "Fremen", 5, 25, 8, 1000, 30 };      // 프레멘
+	units[3] = (UNIT){ "Fighter", 6, 20, 10, 800, 30 };     // 투사
+	units[4] = (UNIT){ "Heavy Tank", 10, 40, 20, 1200, 60 }; // 중전차
+	units[5] = (UNIT){ "Sandworm", 0, 10000, 0, 2500, 10000 }; // 샌드웜
+}
+

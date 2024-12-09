@@ -37,6 +37,22 @@ typedef enum {
 	k_undef, // 정의되지 않은 키 입력	
 } KEY;
 
+typedef struct {
+	char* name;       // 건물 이름
+	int cost;         // 건설 비용
+	int capacity;     // 내구도
+	int production;   // 생산 가능 유닛
+} BUILDING;
+
+typedef struct {
+	char* name;       // 유닛 이름
+	int cost;         // 생산비용
+	int attack;       // 공격력
+	int defense;      // 방어력
+	int speed;        // 이동 속도
+	int health;       // 체력
+} UNIT;
+
 
 // DIRECTION은 KEY의 부분집합이지만, 의미를 명확하게 하기 위해서 다른 타입으로 정의
 typedef enum {

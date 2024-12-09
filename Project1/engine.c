@@ -152,6 +152,25 @@ void init(void) {
 			}
 		}
 	}
+
+	if (map[0][cursor.current.row][cursor.current.column] == 'B') {
+		display_commands("Base");
+	}
+	else if (map[0][cursor.current.row][cursor.current.column] == 'R') { // Barracks의 약자로 설정
+		display_commands("Barracks");
+	}
+	else if (map[0][cursor.current.row][cursor.current.column] == 'S') { // Shelter의 약자로 설정
+		display_commands("Shelter");
+	}
+	else if (map[0][cursor.current.row][cursor.current.column] == 'A') { // Arena의 약자로 설정
+		display_commands("Arena");
+	}
+	else if (map[0][cursor.current.row][cursor.current.column] == 'F') { // Factory의 약자로 설정
+		display_commands("Factory");
+	}
+	else {
+		display_commands("None");
+	}
 }
 
 
