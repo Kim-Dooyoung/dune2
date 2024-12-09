@@ -35,7 +35,6 @@ void display(
 	display_system_message("All systems operational.");
 	display_commands("Move, Attack, Defend");
 	display_status("Unit: Worker, HP: 100/100");
-	// ...
 }
 
 void display_resource(RESOURCE resource) {
@@ -67,12 +66,31 @@ void display_map(char map[N_LAYER][MAP_HEIGHT][MAP_WIDTH]) {
 		for (int j = 0; j < MAP_WIDTH; j++) {
 			if (frontbuf[i][j] != backbuf[i][j]) {
 				POSITION pos = { i, j };
-				printc(padd(map_pos, pos), backbuf[i][j], COLOR_DEFAULT);
+				int color = COLOR_DEFAULT;
+
+				switch (backbuf[i][j]) {
+				case 'B':
+					color = (i < MAP_HEIGHT / 2) ? COLOR_RED : COLOR_BLUE; // AI(빨간색), 플레이어(파란색)
+					break;
+				case 'H':
+					color = (i < MAP_HEIGHT / 2) ? COLOR_RED : COLOR_BLUE; // AI(빨간색), 플레이어(파란색)
+					break;
+				case 'S': color = COLOR_ORANGE; break; // Spice
+				case 'P': color = COLOR_BLACK; break;  // Plate
+				case 'R': color = COLOR_GRAY; break;   // Rock
+				case 'W': color = COLOR_YELLOW; break; // Sandworm
+				case ' ': color = COLOR_SAND; break;   // 빈 칸
+				}
+
+				printc(padd(map_pos, pos), backbuf[i][j], color);
 			}
 			frontbuf[i][j] = backbuf[i][j];
 		}
 	}
 }
+
+
+
 
 // frontbuf[][]에서 커서 위치의 문자를 색만 바꿔서 그대로 다시 출력
 void display_cursor(CURSOR cursor) {

@@ -15,6 +15,17 @@
 #define COLOR_CURSOR	112
 #define COLOR_RESOURCE  112
 
+#define COLOR_BLUE   9    // ÇÃ·¹ÀÌ¾î Base, Harvester
+#define COLOR_RED    12   // AI Base, Harvester
+#define COLOR_ORANGE 14   // Spice
+#define COLOR_BLACK   0   // Plate
+#define COLOR_GRAY    8   // Rock
+#define COLOR_YELLOW 14   // Sandworm
+#define COLOR_SAND   15   // ºó Ä­
+
+
+
+
 void display_commands(const char* commands);
 void display_system_message(const char* message);
 void display_status(const char* status);

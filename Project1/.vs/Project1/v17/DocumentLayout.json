@@ -7,20 +7,20 @@
       "RelativeMoniker": "D:0:0:{915A1A03-927B-455B-9EA6-2B28C7415462}|Project1.vcxproj|solutionrelative:engine.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{915A1A03-927B-455B-9EA6-2B28C7415462}|Project1.vcxproj|C:\\Users\\user\\Desktop\\dune\\Project1\\common.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{915A1A03-927B-455B-9EA6-2B28C7415462}|Project1.vcxproj|solutionrelative:common.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{915A1A03-927B-455B-9EA6-2B28C7415462}|Project1.vcxproj|C:\\Users\\user\\Desktop\\dune\\Project1\\io.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{915A1A03-927B-455B-9EA6-2B28C7415462}|Project1.vcxproj|solutionrelative:io.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{915A1A03-927B-455B-9EA6-2B28C7415462}|Project1.vcxproj|C:\\Users\\user\\Desktop\\dune\\Project1\\display.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{915A1A03-927B-455B-9EA6-2B28C7415462}|Project1.vcxproj|solutionrelative:display.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{915A1A03-927B-455B-9EA6-2B28C7415462}|Project1.vcxproj|C:\\Users\\user\\Desktop\\dune\\Project1\\display.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{915A1A03-927B-455B-9EA6-2B28C7415462}|Project1.vcxproj|solutionrelative:display.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{915A1A03-927B-455B-9EA6-2B28C7415462}|Project1.vcxproj|C:\\Users\\user\\Desktop\\dune\\Project1\\display.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{915A1A03-927B-455B-9EA6-2B28C7415462}|Project1.vcxproj|solutionrelative:display.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{915A1A03-927B-455B-9EA6-2B28C7415462}|Project1.vcxproj|C:\\Users\\user\\Desktop\\dune\\Project1\\common.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{915A1A03-927B-455B-9EA6-2B28C7415462}|Project1.vcxproj|solutionrelative:common.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915A1A03-927B-455B-9EA6-2B28C7415462}|Project1.vcxproj|C:\\Users\\user\\Desktop\\dune\\Project1\\io.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{915A1A03-927B-455B-9EA6-2B28C7415462}|Project1.vcxproj|solutionrelative:io.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{915A1A03-927B-455B-9EA6-2B28C7415462}|Project1.vcxproj|C:\\Users\\user\\Desktop\\dune\\Project1\\io.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -44,7 +44,7 @@
               "RelativeDocumentMoniker": "engine.c",
               "ToolTip": "C:\\Users\\user\\Desktop\\dune\\Project1\\engine.c",
               "RelativeToolTip": "engine.c",
-              "ViewState": "AQIAALAAAAAAAAAAAAArwLoAAAABAAAA",
+              "ViewState": "AQIAAGoAAAAAAAAAAAAmwH4AAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-12-09T15:13:17.391Z",
               "EditorCaption": ""
@@ -53,11 +53,11 @@
         },
         {
           "DockedHeight": 606,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "io.c",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\dune\\Project1\\io.c",
               "RelativeDocumentMoniker": "io.c",
@@ -70,13 +70,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "display.c",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\dune\\Project1\\display.c",
               "RelativeDocumentMoniker": "display.c",
               "ToolTip": "C:\\Users\\user\\Desktop\\dune\\Project1\\display.c",
               "RelativeToolTip": "display.c",
-              "ViewState": "AQIAABYAAAAAAAAAAAAuwCQAAAAtAAAA",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAQwFIAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-12-09T15:13:26.379Z",
               "EditorCaption": ""
@@ -85,11 +85,11 @@
         },
         {
           "DockedHeight": 430,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "common.h",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\dune\\Project1\\common.h",
               "RelativeDocumentMoniker": "common.h",
@@ -115,13 +115,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "display.h",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\dune\\Project1\\display.h",
               "RelativeDocumentMoniker": "display.h",
               "ToolTip": "C:\\Users\\user\\Desktop\\dune\\Project1\\display.h",
               "RelativeToolTip": "display.h",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAqwBQAAAAAAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAswBMAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-12-09T15:20:29.895Z",
               "EditorCaption": ""

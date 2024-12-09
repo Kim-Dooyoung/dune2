@@ -89,7 +89,7 @@ void outro(void) {
 }
 
 void init(void) {
-	// layer 0(map[0])에 지형 생성
+	// 맵 초기화
 	for (int j = 0; j < MAP_WIDTH; j++) {
 		map[0][0][j] = '#';
 		map[0][MAP_HEIGHT - 1][j] = '#';
@@ -103,16 +103,59 @@ void init(void) {
 		}
 	}
 
-	// layer 1(map[1])은 비워 두기(-1로 채움)
+	// Base (B) - 플레이어(파란색)와 AI(빨간색)
+	// 플레이어 Base (좌측 하단)
+	map[0][MAP_HEIGHT - 2][1] = 'B';
+	map[0][MAP_HEIGHT - 2][2] = 'B';
+	map[0][MAP_HEIGHT - 3][1] = 'B';
+	map[0][MAP_HEIGHT - 3][2] = 'B';
+
+	// AI Base (우측 상단)
+	map[0][1][MAP_WIDTH - 3] = 'B';
+	map[0][2][MAP_WIDTH - 3] = 'B';
+	map[0][1][MAP_WIDTH - 4] = 'B';
+	map[0][2][MAP_WIDTH - 4] = 'B';
+
+	// Harvester (H) - 플레이어(파란색)와 AI(빨간색)
+	map[1][MAP_HEIGHT - 4][1] = 'H';  // 플레이어
+	map[1][3][MAP_WIDTH - 3] = 'H';   // AI
+
+	// Spice (S) - 스파이스 매장지
+	map[0][MAP_HEIGHT - 6][4] = '5';  // 좌측 하단
+	map[0][4][MAP_WIDTH - 6] = '5';   // 우측 상단
+
+	// Plate (P) - 장판
+	map[0][MAP_HEIGHT - 2][4] = 'P';
+	map[0][MAP_HEIGHT - 3][4] = 'P';
+	map[0][MAP_HEIGHT - 2][5] = 'P';
+	map[0][MAP_HEIGHT - 3][5] = 'P';
+
+	map[0][1][MAP_WIDTH - 5] = 'P';
+	map[0][2][MAP_WIDTH - 5] = 'P';
+	map[0][1][MAP_WIDTH - 6] = 'P';
+	map[0][2][MAP_WIDTH - 6] = 'P';
+
+	// Rock (R)
+	map[0][5][5] = 'R';
+	map[0][6][3] = 'R';
+	map[0][6][7] = 'R';
+
+	// Sandworm (W)
+	map[1][3][8] = 'W';
+	map[1][10][13] = 'W';
+
+	// layer 1(map[1])의 나머지 부분 -1로 초기화
 	for (int i = 0; i < MAP_HEIGHT; i++) {
 		for (int j = 0; j < MAP_WIDTH; j++) {
-			map[1][i][j] = -1;
+			if (map[1][i][j] == 0) {
+				map[1][i][j] = -1;
+			}
 		}
 	}
-
-	// object sample
-	map[1][obj.pos.row][obj.pos.column] = 'o';
 }
+
+
+
 
 // (가능하다면) 지정한 방향으로 커서 이동
 void cursor_move(DIRECTION dir) {
