@@ -8,6 +8,13 @@
 #include <assert.h>
 #include "common.h"
 
+POSITION find_sandworm();
+POSITION find_nearest_unit(POSITION sandworm_pos);
+DIRECTION calculate_direction(POSITION from, POSITION to);
+POSITION get_random_position();
+POSITION get_random_adjacent_position(int row, int col);
+
+
 /* ================= system parameters =================== */
 #define TICK 10		// time unit(ms)
 
@@ -19,7 +26,8 @@
 /* ================= 위치와 방향 =================== */
 // 맵에서 위치를 나타내는 구조체
 typedef struct {
-	int row, column;
+	int row;    // 행 좌표
+	int column; // 열 좌표
 } POSITION;
 
 // 커서 위치
@@ -53,6 +61,11 @@ typedef struct {
 	int health;       // 체력
 } UNIT;
 
+POSITION find_sandworm();
+POSITION find_nearest_unit(POSITION sandworm_pos);
+DIRECTION calculate_direction(POSITION from, POSITION to);
+POSITION get_random_position();
+POSITION get_random_adjacent_position(int row, int col);
 
 // DIRECTION은 KEY의 부분집합이지만, 의미를 명확하게 하기 위해서 다른 타입으로 정의
 typedef enum {

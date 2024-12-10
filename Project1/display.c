@@ -8,6 +8,13 @@
 #include "display.h"
 #include "io.h"
 
+#define STATUS_X (MAP_WIDTH + 2)
+#define STATUS_Y 2
+
+#define COMMANDS_X (MAP_WIDTH + 2)
+#define COMMANDS_Y (MAP_HEIGHT + 2)
+
+
 // 출력할 내용들의 좌상단(topleft) 좌표
 const POSITION resource_pos = { 0, 0 };
 const POSITION map_pos = { 1, 0 };
@@ -112,36 +119,20 @@ void display_system_message(const char* message) {
 	printf("SYSTEM: %s", message);
 }
 
-void display_commands(const char* building_or_unit) {
-	POSITION command_pos = { MAP_HEIGHT + 2, 0 };
-	gotoxy(command_pos);
-
-	if (strcmp(building_or_unit, "Base") == 0) {
-		printf("COMMANDS: H: Harvester 생산");
-	}
-	else if (strcmp(building_or_unit, "Barracks") == 0) {
-		printf("COMMANDS: Soldier 생산");
-	}
-	else if (strcmp(building_or_unit, "Shelter") == 0) {
-		printf("COMMANDS: Fremen 생산");
-	}
-	else if (strcmp(building_or_unit, "Arena") == 0) {
-		printf("COMMANDS: Fighter 생산");
-	}
-	else if (strcmp(building_or_unit, "Factory") == 0) {
-		printf("COMMANDS: Heavy Tank 생산");
-	}
-	else {
-		printf("COMMANDS: 없음");
-	}
+void display_commands(const char* commands) {
+	POSITION command_pos = { MAP_HEIGHT + 1, MAP_WIDTH + 4 }; // 명령창의 고정 좌표 (오른쪽 하단)
+	gotoxy(command_pos);                                      // 커서를 명령창 위치로 이동
+	printf("COMMANDS: %-50s", commands);                      // 명령창에 메시지 출력 (50칸 고정)
 }
+
 
 
 void display_status(const char* status) {
-	POSITION status_pos = { 0, MAP_WIDTH / 2 + 1 };
-	gotoxy(status_pos);
-	printf("STATUS: %s", status);
+	POSITION status_pos = { 0, MAP_WIDTH + 4 }; // 상태창의 고정 좌표 (오른쪽 상단)
+	gotoxy(status_pos);                        // 커서를 상태창 위치로 이동
+	printf("STATUS: %-50s", status);           // 상태창에 메시지 출력 (50칸 고정)
 }
+
 
 void init_buildings(BUILDING buildings[]) {
 	buildings[0] = (BUILDING){ "Base", 0, 50, 1 };          // 본진
