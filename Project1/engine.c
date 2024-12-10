@@ -16,6 +16,12 @@ void cancel_selection();    // cancel_selection 함수 선언
 POSITION sample_obj_next_position(void);
 DIRECTION last_dir = d_stay;
 clock_t last_time = 0;
+POSITION find_sandworm();
+POSITION find_nearest_unit(POSITION sandworm_pos);
+DIRECTION calculate_direction(POSITION from, POSITION to);
+POSITION get_random_position();
+POSITION get_random_adjacent_position(int row, int col);
+void produce_unit(char unit_type);
 
 int sandworm_size = 1;
 
@@ -140,6 +146,12 @@ int main(void) {
 				cancel_selection();
 				break;
 			default:
+				break;
+			case 'H': // 하베스터 생성
+				produce_unit('H');
+				break;
+			case 'X': // 생산 취소
+				cancel_selection();
 				break;
 			}
 		}
@@ -420,7 +432,7 @@ void update_sandworm_size(char action) {
 		sandworm_size++;
 		printf("샌드웜의 크기가 증가했습니다! 현재 크기: %d\n", sandworm_size);
 	}
-	else if (action == 'excrete') {
+	else if (action == "excrete") {
 		if (sandworm_size > 1) sandworm_size--;
 		printf("샌드웜의 크기가 감소했습니다! 현재 크기: %d\n", sandworm_size);
 	}
@@ -443,6 +455,23 @@ void move_sandstorm() {
 				map[1][i][j] = -1; // 이전 위치 제거
 				map[1][new_pos.row][new_pos.column] = 'F'; // 새로운 위치
 				printf("모래 폭풍이 이동했습니다! 새로운 위치: (%d, %d)\n", new_pos.row, new_pos.column);
+			}
+		}
+	}
+}
+
+void produce_unit(char unit_type) {
+	if (selected_object == 'B') { // Base 선택 여부 확인
+		if (unit_type == 'H') { // 하베스터 생성
+			if (resource.spice >= 5 && resource.population < resource.population_max) {
+				resource.spice -= 5;
+				resource.population++;
+				display_system_message("A new harvester is ready!");
+				// 하베스터를 Base 근처에 배치
+				map[0][cursor.current.row + 1][cursor.current.column] = 'H';
+			}
+			else {
+				display_system_message("Not enough spice or population full");
 			}
 		}
 	}
