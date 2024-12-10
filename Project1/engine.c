@@ -140,27 +140,20 @@ int main(void) {
 			switch (key) {
 			case k_quit:
 				outro();
-				break;
-			case ' ': // 스페이스바: 선택
+				return 0;
+			case ' ': // 스페이스바 입력
 				select_object();
 				break;
-			case 27: // ESC 키: 선택 취소
+			case 'X': // 선택 취소
 				cancel_selection();
 				break;
 			default:
-				break;
-			case 'H': // 하베스터 생성
-				produce_unit('H');
-				break;
-			case 'X': // 생산 취소
-				cancel_selection();
 				break;
 			}
 		}
 
 		display(resource, map, cursor);
 		Sleep(TICK);
-		sys_clock += TICK;
 	}
 }
 
