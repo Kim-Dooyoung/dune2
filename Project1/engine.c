@@ -92,6 +92,8 @@ POSITION get_random_adjacent_position(int row, int col) {
 }
 
 
+
+
 DIRECTION calculate_direction(POSITION from, POSITION to) {
 	int row_diff = to.row - from.row;
 	int col_diff = to.column - from.column;
@@ -354,44 +356,55 @@ void select_object() {
 		case 'B':
 			display_status("Base selected: Main headquarters");
 			display_commands("Commands: Build, Repair");
+			display_system_message("Base selected");
 			break;
 		case 'R':
 			display_status("Rock selected: Impassable terrain");
 			display_commands("Commands: None");
+			display_system_message("Rock selected");
 			break;
 		case 'S':
 			display_status("Spice field selected: Harvestable resource");
 			display_commands("Commands: Harvest");
+			display_system_message("Spice field selected");
 			break;
 		case 'H':
 			display_status("Harvester selected: Resource collector");
 			display_commands("Commands: Move, Collect");
+			display_system_message("Harvester selected");
 			break;
 		case 'P':
 			display_status("Plate selected: Buildable foundation");
 			display_commands("Commands: Build structure");
+			display_system_message("Plate selected");
 			break;
 		case 'W':
 			display_status("Sandworm selected: Dangerous entity");
 			display_commands("Commands: Avoid");
+			display_system_message("Sandworm selected");
 			break;
 		default:
 			display_status("Unknown object selected");
 			display_commands("Commands: None");
+			display_system_message("Unknown object selected");
 		}
 	}
 	else {
 		// ºó Ä­ ¼±ÅÃ ½Ã
 		display_status("Empty tile selected");
 		display_commands("Commands: None");
+		display_system_message("Empty tile selected");
 	}
 }
+
 
 void cancel_selection() {
 	selected_object = '\0';
 	display_status("No object selected");
 	display_commands("Commands: None");
+	display_system_message("Selection cancelled");
 }
+
 
 void move_sandworm() {
 	POSITION sandworm_pos = find_sandworm(); // »÷µå¿ú À§Ä¡¸¦ Ã£À½

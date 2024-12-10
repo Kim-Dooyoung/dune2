@@ -8,11 +8,19 @@
 #include "display.h"
 #include "io.h"
 
+
+#define _CRT_SECURE_NO_WARNINGS // 경고 비활성화
+#include <string.h> // 헤더 포함
+
 #define STATUS_X (MAP_WIDTH + 2)
 #define STATUS_Y 2
 
 #define COMMANDS_X (MAP_WIDTH + 2)
 #define COMMANDS_Y (MAP_HEIGHT + 2)
+
+#define MAX_SYSTEM_MESSAGES 5
+char system_messages[MAX_SYSTEM_MESSAGES][50] = { { 0 } };
+int message_count = 0;
 
 
 // 출력할 내용들의 좌상단(topleft) 좌표
@@ -114,9 +122,23 @@ void display_cursor(CURSOR cursor) {
 }
 
 void display_system_message(const char* message) {
-	POSITION message_pos = { MAP_HEIGHT + 1, 0 };
-	gotoxy(message_pos);
-	printf("SYSTEM: %s", message);
+	if (message_count < MAX_SYSTEM_MESSAGES) {
+		strncpy_s(system_messages[message_count], sizeof(system_messages[message_count]), message, _TRUNCATE);
+		message_count++;
+	}
+	else {
+		for (int i = 1; i < MAX_SYSTEM_MESSAGES; i++) {
+			strncpy_s(system_messages[i - 1], sizeof(system_messages[i - 1]), system_messages[i], _TRUNCATE);
+		}
+		strncpy_s(system_messages[MAX_SYSTEM_MESSAGES - 1], sizeof(system_messages[MAX_SYSTEM_MESSAGES - 1]), message, _TRUNCATE);
+	}
+
+	// 화면에 출력
+	for (int i = 0; i < message_count; i++) {
+		POSITION message_pos = { MAP_HEIGHT + 1 + i, 0 };
+		gotoxy(message_pos);
+		printf("SYSTEM: %-50s", system_messages[i]);
+	}
 }
 
 void display_commands(const char* commands) {

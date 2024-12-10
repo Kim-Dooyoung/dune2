@@ -1,4 +1,4 @@
 ﻿  engine.c
-C:\Users\user\Desktop\dune\Project1\engine.c(420,11): warning C4101: 'sandworm_pos' :참조되지 않은 지역 변수입니다.
-C:\Users\user\Desktop\dune\Project1\engine.c(435,18): warning C4047: '==': 'int'의 간접 참조 수준이 'char [8]'과(와) 다릅니다.
+C:\Users\user\Desktop\dune\Project1\engine.c(433,11): warning C4101: 'sandworm_pos' :참조되지 않은 지역 변수입니다.
+C:\Users\user\Desktop\dune\Project1\engine.c(448,18): warning C4047: '==': 'int'의 간접 참조 수준이 'char [8]'과(와) 다릅니다.
   Project1.vcxproj -> C:\Users\user\Desktop\dune\Project1\x64\Debug\Project1.exe
